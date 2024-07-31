@@ -7,16 +7,33 @@
     <title>Algolizer</title>
   </head>
   <body>
-    <h1>Algolizer</h1>
-    <div id="container"></div>
-
-    <hr />
-
-    <div>
-      <button onclick="init()">init</button>
-      <button onclick="play()">play</button>
+    <div class="top-bar">
+      <h1 class="title">Algolizer</h1>
     </div>
-
+    <div class="content">
+      <div class="explanation">
+        <h2>Explanation</h2>
+        <p id="explanation-text">
+          Select a sorting algorithm to see its explanation here.
+        </p>
+      </div>
+      <div id="container"></div>
+      <div class="code-box">
+        <h2>Algorithm Code</h2>
+        <pre id="algorithm-code">
+Select a sorting algorithm to see its code here.</pre
+        >
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="init()">Init</button>
+      <button onclick="play()">Play</button>
+      <select id="algorithm" onchange="updateExplanationAndCode()">
+        <option value="selectionSort">Selection Sort</option>
+        <option value="bubbleSort">Bubble Sort</option>
+        <option value="insertionSort">Insertion Sort</option>
+      </select>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

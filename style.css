@@ -1,17 +1,139 @@
 body {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background: #f3e5f5;
+  font-family: "Arial", sans-serif;
+}
+
+.top-bar {
+  width: 100%;
+  background: #4a148c;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+}
+
+.title {
+  color: #fff;
+  font-size: 2rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 70px;
+}
+
+.explanation {
+  flex: 1;
+  margin-right: 20px;
+  background-color: #e1bee7;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.explanation h2 {
+  color: #4a148c;
 }
 
 #container {
-  height: 200px;
+  height: 300px;
+  flex: 2;
   display: flex;
   align-items: flex-end;
+  border: 2px solid #4a148c;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #e1bee7;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 20px;
 }
 
 .bar {
-  width: 10px;
-  margin: 1px;
-  background-color: black;
+  width: 20px;
+  margin: 2px;
+  background-color: #6a1b9a;
+  transition: height 0.2s ease, background-color 0.2s ease;
+}
+
+.bar.comparison {
+  background-color: #ab47bc;
+}
+
+.bar.swap {
+  background-color: #d32f2f;
+}
+
+.code-box {
+  flex: 1;
+  background-color: #e1bee7;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.code-box h2 {
+  color: #4a148c;
+}
+
+#algorithm-code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button,
+select {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a148c;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+select:hover {
+  background-color: #6a1b9a;
+}
+
+button:active,
+select:active {
+  background-color: #38006b;
+}
+
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
 }
