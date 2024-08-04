@@ -1,139 +1,188 @@
+/* General body styling */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
   margin: 0;
-  background: #f3e5f5;
-  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #f3e5f5,
+    #e1bee7
+  ); /* Light gradient background */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  perspective: 1000px; /* 3D effect */
 }
 
+/* Styling for the top bar */
 .top-bar {
   width: 100%;
-  background: #4a148c;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: #4a148c; /* Primary color */
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
-}
-
-.title {
-  color: #fff;
-  font-size: 2rem;
-  animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.content {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1200px;
-  margin-top: 70px;
-}
-
-.explanation {
-  flex: 1;
-  margin-right: 20px;
-  background-color: #e1bee7;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.explanation h2 {
-  color: #4a148c;
-}
-
-#container {
-  height: 300px;
-  flex: 2;
-  display: flex;
-  align-items: flex-end;
-  border: 2px solid #4a148c;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #e1bee7;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin: 0 20px;
-}
-
-.bar {
-  width: 20px;
-  margin: 2px;
-  background-color: #6a1b9a;
-  transition: height 0.2s ease, background-color 0.2s ease;
-}
-
-.bar.comparison {
-  background-color: #ab47bc;
-}
-
-.bar.swap {
-  background-color: #d32f2f;
-}
-
-.code-box {
-  flex: 1;
-  background-color: #e1bee7;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.code-box h2 {
-  color: #4a148c;
-}
-
-#algorithm-code {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.controls {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+  align-items: center;
+  z-index: 1;
+  transform: translateZ(
+    0
+  ); /* Ensure 3D transformation applies to child elements */
 }
 
+/* Container for top bar content */
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Flexbox alignment for left and right containers */
+.left-container,
+.right-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for the title */
+.title {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+}
+
+/* Flexbox styling for controls area */
+.controls {
+  display: flex;
+  gap: 15px;
+}
+
+/* Styling for buttons and select */
 button,
 select {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #4a148c;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform: translateZ(0); /* Ensure 3D transformation applies */
 }
 
+/* Hover and active states for buttons and select */
 button:hover,
 select:hover {
-  background-color: #6a1b9a;
+  background-color: #ffffff;
+  color: black;
 }
 
 button:active,
 select:active {
   background-color: #38006b;
+  transform: scale(0.98);
 }
 
+/* Styling for the select dropdown */
 select {
   appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px center;
+  background: #4a148c
+    url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
+    no-repeat right 10px center;
   background-size: 12px;
+}
+
+/* Styling for main content area */
+.main-content {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 80px; /* Adjusted for top bar height */
+  padding: 20px;
+}
+
+/* Styling for the container displaying bars */
+#container {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  border: 2px solid #4a148c;
+  border-radius: 10px;
+  padding: 10px;
+  background: radial-gradient(
+    circle,
+    #f3e5f5,
+    #e1bee7
+  ); /* Radial gradient background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: rotateX(15deg); /* 3D effect */
+}
+
+/* Styling for individual bars */
+.bar {
+  width: 20px;
+  margin: 0 4px;
+  background-color: #4a148c;
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Color changes for comparison and swap states */
+.bar.comparison {
+  background-color: #ab47bc; /* Comparison color */
+}
+
+.bar.swap {
+  background-color: #d32f2f; /* Swap color */
+}
+
+/* Styling for the explanation section */
+.explanation {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 2px solid #4a148c; /* Matching border color */
+}
+
+/* Container for the explanation columns */
+.explanation-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Styling for individual explanation columns */
+.explanation-column {
+  width: 30%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #f3e5f5; /* Matching background color */
+  border-radius: 8px;
+  border: 1px solid #e1bee7; /* Subtle border color */
+}
+
+.explanation-column h2 {
+  font-size: 1.5rem;
+  color: #4a148c; /* Matching heading color */
+  margin-bottom: 10px;
+}
+
+.explanation-column p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333; /* Neutral text color */
 }

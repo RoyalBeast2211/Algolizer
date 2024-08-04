@@ -7,33 +7,62 @@
     <title>Algolizer</title>
   </head>
   <body>
+    <!-- Top bar with navigation and controls -->
     <div class="top-bar">
-      <h1 class="title">Algolizer</h1>
-    </div>
-    <div class="content">
-      <div class="explanation">
-        <h2>Explanation</h2>
-        <p id="explanation-text">
-          Select a sorting algorithm to see its explanation here.
-        </p>
+      <div class="top-bar-container">
+        <div class="left-container">
+          <h1 class="title">Algolizer</h1>
+        </div>
+        <div class="right-container">
+          <div class="controls">
+            <button onclick="init()">NEW DATA</button>
+            <button onclick="play()">START SORTING</button>
+            <select id="algorithm" onchange="updateExplanationAndCode()">
+              <option value="selectionSort">SELECTION SORT</option>
+              <option value="bubbleSort">BUBBLE SORT</option>
+              <option value="insertionSort">INSERTION SORT</option>
+            </select>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <!-- Main content area for displaying sorting visualization -->
+    <div class="main-content">
       <div id="container"></div>
-      <div class="code-box">
-        <h2>Algorithm Code</h2>
-        <pre id="algorithm-code">
-Select a sorting algorithm to see its code here.</pre
-        >
+    </div>
+
+    <!-- Sorting algorithms explanation -->
+    <div class="explanation">
+      <div class="explanation-container">
+        <div class="explanation-column">
+          <h2>Selection Sort</h2>
+          <p>
+            Selection Sort is an in-place comparison sorting algorithm. It
+            repeatedly selects the smallest (or largest) element from the
+            unsorted portion and moves it to the end of the sorted portion.
+          </p>
+        </div>
+        <div class="explanation-column">
+          <h2>Bubble Sort</h2>
+          <p>
+            Bubble Sort is a simple comparison-based sorting algorithm. It
+            repeatedly steps through the list, compares adjacent elements, and
+            swaps them if they are in the wrong order. This process continues
+            until the list is sorted.
+          </p>
+        </div>
+        <div class="explanation-column">
+          <h2>Insertion Sort</h2>
+          <p>
+            Insertion Sort builds the final sorted array one item at a time. It
+            picks elements from the unsorted part and inserts them into their
+            correct position in the sorted part of the array.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="controls">
-      <button onclick="init()">Init</button>
-      <button onclick="play()">Play</button>
-      <select id="algorithm" onchange="updateExplanationAndCode()">
-        <option value="selectionSort">Selection Sort</option>
-        <option value="bubbleSort">Bubble Sort</option>
-        <option value="insertionSort">Insertion Sort</option>
-      </select>
-    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
