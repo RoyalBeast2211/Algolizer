@@ -15,13 +15,18 @@
         </div>
         <div class="right-container">
           <div class="controls">
-            <button onclick="init()">NEW DATA</button>
-            <button onclick="play()">START SORTING</button>
+            <input
+              type="text"
+              id="numberInput"
+              placeholder="Enter array size"
+            />
+            <button onclick="convertToInteger()">NEW DATA</button>
             <select id="algorithm" onchange="updateExplanationAndCode()">
               <option value="selectionSort">SELECTION SORT</option>
               <option value="bubbleSort">BUBBLE SORT</option>
               <option value="insertionSort">INSERTION SORT</option>
             </select>
+            <button onclick="play()">START SORTING</button>
           </div>
         </div>
       </div>
@@ -64,5 +69,19 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- Modal for instructions -->
+    <div id="instructionsModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2>Welcome to Algolizer!</h2>
+        <p>Here's how to use the website:</p>
+        <ul>
+          <li>Enter the desired number of bars in the input field.</li>
+          <li>Click "NEW DATA" to generate a new array of bars.</li>
+          <li>Select a sorting algorithm from the dropdown menu.</li>
+          <li>Click "START SORTING" to see the sorting process visualized.</li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>

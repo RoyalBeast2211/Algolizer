@@ -1,17 +1,38 @@
-// Number of bars
-const n = 40;
+window.onload = function () {
+  document.getElementById("instructionsModal").style.display = "block";
+};
+
+function closeModal() {
+  document.getElementById("instructionsModal").style.display = "none";
+}
+
+let n = 0;
 const array = [];
 
-// Initialize the array and show bars
-init();
+function convertToInteger() {
+  // Get the value from the input field
+  const inputValue = document.getElementById("numberInput").value;
+
+  // Convert the input value to an integer
+  const integerValue = parseInt(inputValue, 10); // 10 is the radix (base) for decimal numbers
+
+  // Check if the conversion was successful
+  if (isNaN(integerValue) || integerValue <= 0) {
+    alert("Please enter a valid positive number.");
+    return;
+  }
+
+  n = integerValue; // Update n with the converted value
+  init(); // Initialize with the new size
+}
 
 function init() {
+  array.length = 0; // Clear the array
   for (let i = 0; i < n; i++) {
     array[i] = Math.random();
   }
   showBars();
 }
-
 // Start the sorting process
 function play() {
   const copy = [...array];
